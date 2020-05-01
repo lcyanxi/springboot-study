@@ -9,9 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.lcyanxi.impl"})
 @EnableDubbo
-//@ImportResource(locations = {"classpath:dubbo_config/springboot-service-provider.xml"})
 public class SpringbootServiceApplication {
 
 	public static void main(String[] args) throws Exception {

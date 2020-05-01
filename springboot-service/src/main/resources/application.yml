@@ -5,7 +5,6 @@ database0:
     url: jdbc:mysql://47.93.245.76:3306/test?useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     databaseName: test
-    type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 连接池配置
       # 配置初始化大小、最小、最大
@@ -22,7 +21,7 @@ dubbo:
     name: springboot-dubbo-server
   registry:
     protocol: zookeeper
-    address: localhost:2181
+    address: lcyanxi03:2181
   protocol:
     name: dubbo
     port: 20887
