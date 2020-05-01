@@ -1,16 +1,18 @@
 package com.lcyanxi.impl;
 
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.lcyanxi.dto.UserLessonMapper;
 import com.lcyanxi.model.UserLesson;
 import com.lcyanxi.service.IUserLessonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
 @Service
+@Component
 public class UserLessonServiceImpl implements IUserLessonService {
 
     @Autowired

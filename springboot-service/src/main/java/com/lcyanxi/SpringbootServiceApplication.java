@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@ComponentScan(basePackages = {"com.lcyanxi.impl"})
-//@EnableDubbo
+@SpringBootApplication
+//@ComponentScan(basePackages = {"com.lcyanxi.impl"})
+@EnableDubbo
 //@ImportResource(locations = {"classpath:dubbo_config/springboot-service-provider.xml"})
 public class SpringbootServiceApplication {
 
