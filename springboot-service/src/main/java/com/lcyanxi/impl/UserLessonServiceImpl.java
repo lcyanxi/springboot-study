@@ -28,4 +28,9 @@ public class UserLessonServiceImpl implements IUserLessonService {
         System.out.println("insertUserLesson userLessonList"+userLessonList.toString());
         return userLessonMapper.insertBatch(userLessonList);
     }
+
+    @Override
+    public List<UserLesson> findByUserIdLessonIds(Integer userId, List<Integer> lessonIds) {
+        return userLessonMapper.findByUserIdLessonIds(userId,lessonIds);
+    }
 }

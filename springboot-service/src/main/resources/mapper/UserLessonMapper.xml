@@ -26,24 +26,38 @@
     buy_time, buy_status, status, create_uid, create_username, update_uid, update_username, create_time, update_time, is_deleted
   </sql>
 
-  <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
-    insert into pr_user_lesson (
-    class_course_id, user_id, order_no,
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into pr_user_lesson (id,class_course_id, user_id, order_no,
     product_id, class_id, parent_class_id,
-    lesson_id, buy_time, buy_status, status,
-    create_uid, create_username,create_time,
-    update_username, update_uid, update_time,
+    lesson_id, buy_time, buy_status,
+    status, create_time, update_time,
+    create_username,update_username,create_uid,update_uid,
     is_deleted)
     values
-    <foreach collection="userLessons" item="item" index="index" separator=",">
-      (
-      #{item.classCourseId,jdbcType=INTEGER}, #{item.userId,jdbcType=INTEGER}, #{item.orderNo,jdbcType=VARCHAR},
+    <foreach collection="recordList" item="item" index="index" separator=",">
+      (#{item.id,jdbcType=BIGINT},#{item.classCourseId,jdbcType=INTEGER}, #{item.userId,jdbcType=INTEGER}, #{item.orderNo,jdbcType=VARCHAR},
       #{item.productId,jdbcType=INTEGER}, #{item.classId,jdbcType=INTEGER}, #{item.parentClassId,jdbcType=INTEGER},
-      #{item.lessonId,jdbcType=INTEGER}, #{item.buyTime,jdbcType=TIMESTAMP}, #{item.buyStatus,jdbcType=BIT},#{item.status,jdbcType=TINYINT},
-      #{item.createUid,jdbcType=VARCHAR},#{item.createUsername,jdbcType=VARCHAR},now(),
-      #{item.updateUsername,jdbcType=VARCHAR},#{item.updateUid,jdbcType=VARCHAR}, now(),
-      0)
+      #{item.lessonId,jdbcType=INTEGER}, #{item.buyTime,jdbcType=TIMESTAMP}, #{item.buyStatus,jdbcType=BIT},
+      #{item.status,jdbcType=TINYINT}, now(), now(),
+      #{item.createUsername,jdbcType=VARCHAR},#{item.updateUsername,jdbcType=VARCHAR},
+      #{item.createUid,jdbcType=VARCHAR},#{item.updateUid,jdbcType=VARCHAR},0)
     </foreach>
   </insert>
+
+
+  <select id="findByUserIdLessonIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pr_user_lesson
+    where
+    is_deleted = 0
+    and user_id = #{userId}
+    <if test="lessonIds != null">
+      and lesson_id in
+      <foreach item="lessonId" index="index" collection="lessonIds" open="(" separator="," close=")">
+        #{lessonId}
+      </foreach>
+    </if>
+  </select>
 
 </mapper>

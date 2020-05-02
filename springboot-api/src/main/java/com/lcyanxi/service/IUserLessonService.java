@@ -12,4 +12,13 @@ public interface IUserLessonService {
      * @return
      */
     Boolean insertUserLesson(List<UserLesson> userLessonList);
+
+
+    /**
+     * 通过用户ID和班级ID集合查找数据
+     * @param userId 用户ID
+     * @param lessonIds 课次ID
+     * @return
+     */
+    List<UserLesson> findByUserIdLessonIds(Integer userId, List<Integer> lessonIds);
 }
