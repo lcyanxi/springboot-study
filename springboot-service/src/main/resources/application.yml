@@ -21,10 +21,11 @@ dubbo:
     name: springboot-dubbo-server
   registry:
     protocol: zookeeper
-    address: lcyanxi03:2181
+    address: 47.93.245.76:2181,47.93.245.76:2182,47.93.245.76:2183
+    timeout: 60000
   protocol:
     name: dubbo
-    port: 20887
+    port: 20880
   version: 1.0.0
   scan:
     base-packages: com.lcyanxi.impl

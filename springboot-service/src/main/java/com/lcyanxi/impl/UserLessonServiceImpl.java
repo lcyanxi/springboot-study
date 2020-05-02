@@ -11,7 +11,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-@Service
+@Service(timeout = 3000)
 @Component
 public class UserLessonServiceImpl implements IUserLessonService {
 
