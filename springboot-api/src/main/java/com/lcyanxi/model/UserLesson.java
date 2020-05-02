@@ -1,10 +1,12 @@
 package com.lcyanxi.model;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
-
+@Data
 public class UserLesson implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 1L;
@@ -82,153 +84,4 @@ public class UserLesson implements Serializable, Cloneable {
      * 删除状态 1:已删除；0：未删除
      */
     private Boolean isDeleted = false;
-
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getClassCourseId() {
-        return classCourseId;
-    }
-
-    public void setClassCourseId(Integer classCourseId) {
-        this.classCourseId = classCourseId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
-    public Integer getClassId() {
-        return classId;
-    }
-
-    public void setClassId(Integer classId) {
-        this.classId = classId;
-    }
-
-    public Integer getParentClassId() {
-        return parentClassId;
-    }
-
-    public void setParentClassId(Integer parentClassId) {
-        this.parentClassId = parentClassId;
-    }
-
-    public Integer getLessonId() {
-        return lessonId;
-    }
-
-    public void setLessonId(Integer lessonId) {
-        this.lessonId = lessonId;
-    }
-
-    public Date getBuyTime() {
-        return buyTime;
-    }
-
-    public void setBuyTime(Date buyTime) {
-        this.buyTime = buyTime;
-    }
-
-    public Boolean getBuyStatus() {
-        return buyStatus;
-    }
-
-    public void setBuyStatus(Boolean buyStatus) {
-        this.buyStatus = buyStatus;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getCreateUid() {
-        return createUid;
-    }
-
-    public void setCreateUid(String createUid) {
-        this.createUid = createUid;
-    }
-
-    public String getCreateUsername() {
-        return createUsername;
-    }
-
-    public void setCreateUsername(String createUsername) {
-        this.createUsername = createUsername;
-    }
-
-    public String getUpdateUsername() {
-        return updateUsername;
-    }
-
-    public void setUpdateUsername(String updateUsername) {
-        this.updateUsername = updateUsername;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getUpdateUid() {
-        return updateUid;
-    }
-
-    public void setUpdateUid(String updateUid) {
-        this.updateUid = updateUid;
-    }
-
-    public Boolean getDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
-    }
 }
