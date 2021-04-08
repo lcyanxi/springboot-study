@@ -10,16 +10,19 @@ import java.util.concurrent.TimeUnit;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 /**
  * addShutdownHook:优雅关闭线程池
  * @author lichang
  * @date 2021/4/8
  */
+@Component
 @Slf4j
-public class AddShutdownHookDemo {
+public class AddShutdownHookDemo implements InitializingBean {
 
     @Autowired
     private RedisTemplate<String, String> redisClient;
@@ -31,6 +34,12 @@ public class AddShutdownHookDemo {
     private static final int CHECK_TIME_SEC = 10;
 
     public static void main(String[] args) {
+        System.out.println("starting working......");
+    }
+
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
         System.out.println("starting working......");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
@@ -45,7 +54,6 @@ public class AddShutdownHookDemo {
         AddShutdownHookDemo demo = new AddShutdownHookDemo();
         demo.startTTLDaemon();
     }
-
 
     private  void startTTLDaemon() {
         log.info("ConcurrentLeaseLock TTL daemon thread start");
